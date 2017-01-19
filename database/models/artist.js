@@ -1,1 +1,22 @@
-// Todo: Create Artist Model
+import mongoose from 'mongoose';
+import AlbumSchema from './album';
+
+const Schema = mongoose.Schema;
+
+const ArtistSchema = new Schema({
+    name: String,
+    age: Number,
+    yearsActive: Number,
+    image: String,
+    genre: String,
+    website: String,
+    newWorth: Number,
+    labelName: String,
+    retired: Boolean,
+    albums: [AlbumSchema]
+});
+
+
+const Artist = mongoose.model('user', ArtistSchema);
+
+module.exports = Artist;
