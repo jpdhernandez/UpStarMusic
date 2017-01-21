@@ -10,12 +10,11 @@ const ArtistSchema = new Schema({
     image: String,
     genre: String,
     website: String,
-    newWorth: Number,
+    netWorth: Number,
     labelName: String,
     retired: Boolean,
     albums: [AlbumSchema]
 });
-
 
 const Artist = mongoose.model('artist', ArtistSchema);
 
