@@ -20,8 +20,8 @@ module.exports = () => {
 
     return Promise.all([minQuery, maxQuery])
         .then((result) => {
-            console.log(`Min age ${result[0]}`);
-            console.log(`Max age ${result[1]}`);
+            // console.log(`Min age ${result[0]}`);
+            // console.log(`Max age ${result[1]}`);
             return { min: 0, max: result[1] };
         });
 };

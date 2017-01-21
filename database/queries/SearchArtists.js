@@ -28,10 +28,15 @@ module.exports = (criteria = {}, sortProperty = {}, offset = 0, limit = 20) => {
         .limit(limit);
 
     // Result from query above doesn't include collection count 
-    // we need to use .count() to grab length of collection
-    return Promise.all([query, Artist.count()])
+    // we need to use .count() to grab length of collection query
+    return Promise.all([query, Artist.find(buildQuery(criteria)).count()])
         .then((results) => {
-            return { all: results[0], count: results[1], offset, limit };
+            return {
+                all: results[0],
+                count: results[1],
+                offset,
+                limit
+            };
         });
 };
 
